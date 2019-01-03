@@ -48,9 +48,16 @@ public class StudentService {
 				vo.setSt_name(splitF[1]);
 				vo.setSt_tel(splitF[2]);
 				vo.setSt_addr(splitF[3]);
-*/				
+*/				String st_num = splitF[0];
+				st_num = "00000" + st_num;
+				
+				int sEnd = st_num.length();
+				int sStart = sEnd - 5;
+				st_num = st_num.substring(sStart, sEnd);
+				
+				
 				StudentVO vo = new StudentVO(
-						splitF[0], splitF[1], splitF[2], splitF[3]);
+						st_num, splitF[1], splitF[2], splitF[3]);
 				stdList.add(vo);
 			}
 			br.close();
